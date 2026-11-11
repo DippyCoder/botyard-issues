@@ -1,0 +1,120 @@
+name: Problem report
+description: Something on Botyard is broken, failing, or not working the way it should.
+title: "[Problem]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make Botyard better. Please fill out as much as you can so we can reproduce the problem quickly.
+
+        **Never paste your Discord bot token, API keys, or any other secrets in this issue.** Issues are public. If a token was exposed, reset it in the Discord Developer Portal right away.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of Botyard is affected?
+      options:
+        - Bot startup or crashes
+        - Bot goes offline or restarts unexpectedly
+        - Dependency install (pip / npm)
+        - File upload or file manager
+        - Console and logs
+        - Environment variables and secrets
+        - Dashboard or website
+        - Account and login
+        - Performance (CPU, memory, latency)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Runtime
+      description: Which runtime is your bot using?
+      options:
+        - Python
+        - Node.js 22
+        - Not related to a specific runtime
+    validations:
+      required: true
+
+  - type: input
+    id: library
+    attributes:
+      label: Discord library and version
+      description: For example discord.py 2.4.0, nextcord 2.6.0, discord.js 14.16.3. Leave empty if not relevant.
+      placeholder: discord.py 2.4.0
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear and short description of the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can we make the same problem happen?
+      placeholder: |
+        1. Upload a bot with ...
+        2. Click Start
+        3. See error in the console
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console output or error logs
+      description: Paste any relevant logs. Double check that no tokens or secrets are included. This will be formatted as code automatically.
+      render: shell
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If useful, drag and drop screenshots here.
+
+  - type: input
+    id: bot
+    attributes:
+      label: Bot name or ID on Botyard
+      description: Optional. Helps us look at the right instance. Do not post your Discord token.
+
+  - type: input
+    id: when
+    attributes:
+      label: When did it start?
+      description: Approximate date and time, including your timezone.
+      placeholder: 2026-11-10 around 18:00 UTC
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and OS
+      description: Only needed for dashboard or website problems.
+      placeholder: Firefox 133 on Windows 11
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and this has not been reported yet.
+          required: true
+        - label: I removed all bot tokens, API keys, and other secrets from this report.
+          required: true
+        - label: The problem still happens after restarting the bot.

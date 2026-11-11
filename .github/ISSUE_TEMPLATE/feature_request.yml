@@ -1,0 +1,90 @@
+name: New idea
+description: Suggest a new feature or an improvement for Botyard.
+title: "[Idea]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea that would make hosting your Discord bot on Botyard better? Tell us about it below.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of Botyard is this idea about?
+      options:
+        - Runtimes and language support
+        - Dependency install (pip / npm)
+        - File upload or file manager
+        - Console and logs
+        - Environment variables and secrets
+        - Uptime, restarts, and monitoring
+        - Dashboard or website
+        - Account and login
+        - Documentation and guides
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Runtime
+      description: Is this idea tied to a specific runtime?
+      multiple: true
+      options:
+        - Python
+        - Node.js 22
+        - A new runtime or version
+        - Not runtime specific
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe what you are trying to do and what makes it hard or impossible today.
+      placeholder: When my bot crashes, I only find out hours later because ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Your idea
+      description: Describe how you would like it to work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or workarounds
+      description: Anything you tried instead, or other ways this could be solved.
+
+  - type: dropdown
+    id: importance
+    attributes:
+      label: How important is this to you?
+      options:
+        - Nice to have
+        - Would make Botyard noticeably better for me
+        - Blocking me from hosting my bot here
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Extra context
+      description: Mockups, screenshots, links to similar features elsewhere, or anything else that helps explain the idea.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and this idea has not been suggested yet.
+          required: true
